@@ -6,9 +6,9 @@ import {
     ref, uploadBytes, getDownloadURL
 } from './firebase';
 
-const DEFAULT_MARKDOWN = `# Welcome to StackEdit Clone!
+const DEFAULT_MARKDOWN = `# Welcome to Blue Markdown Generator!
 
-Hi! I'm your first Markdown file in **StackEdit Clone**. 
+Hi! I'm your first Markdown file in **Blue Markdown Generator**. 
 
 ## What is Markdown?
 
@@ -195,7 +195,7 @@ function renderFileList() {
     fileList.innerHTML = '';
     files.forEach(file => {
         const div = document.createElement('div');
-        div.className = `group flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all ${file.id === currentFileId ? 'bg-blue-50 text-blue-700 border border-blue-100' : 'hover:bg-gray-100 text-gray-600'}`;
+        div.className = `group flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all ${file.id === currentFileId ? 'bg-white/10 text-white border border-white/10' : 'hover:bg-white/5 text-gray-400 hover:text-gray-200'}`;
         div.onclick = () => {
             currentFileId = file.id;
             loadCurrentFile();
@@ -205,10 +205,10 @@ function renderFileList() {
 
         const left = document.createElement('div');
         left.className = 'flex items-center gap-3 overflow-hidden';
-        left.innerHTML = `<i data-lucide="file-text" size="18" class="${file.id === currentFileId ? 'text-blue-500' : 'text-gray-400'}"></i><span class="truncate font-medium text-sm">${file.name}</span>`;
+        left.innerHTML = `<i data-lucide="file-text" size="16" class="${file.id === currentFileId ? 'text-white' : 'text-gray-600'}"></i><span class="truncate text-[11px] uppercase tracking-widest font-bold">${file.name}</span>`;
         
         const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'opacity-0 group-hover:opacity-100 p-1 hover:bg-red-100 hover:text-red-600 rounded transition-all';
+        deleteBtn.className = 'opacity-0 group-hover:opacity-100 p-1.5 hover:bg-white/10 hover:text-white rounded-full transition-all text-gray-600';
         deleteBtn.innerHTML = '<i data-lucide="trash-2" size="14"></i>';
         deleteBtn.onclick = async (e) => {
             e.stopPropagation();
